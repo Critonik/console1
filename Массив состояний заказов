@@ -1,0 +1,62 @@
+namespace ConsoleApp2
+{
+    class Program
+    {
+
+        static string GetAnswer(Status request)
+        {
+            string[] item = new string[] { "в обработке", "оплачено", "в пути", "доставлен", "неизвестый заказ" };
+            string answerType;
+            switch (request)
+            {
+                case Status.Processing:
+                    answerType = item[0];
+                    break;
+                case Status.Paid:
+                    answerType = item[1];
+                    break;
+                case Status.InWay:
+                    answerType = item[2];
+                    break;
+                case Status.Delivered:
+                    answerType = item[3];
+                    break;
+                default:
+                    answerType = item[4];
+                    break;
+            }
+            return answerType;
+        }
+
+        
+        enum Status
+        {
+            Processing = 1,
+            Paid,
+            InWay,
+            Delivered
+        }
+
+        static void Main(string[] args)
+        {
+
+
+            Console.WriteLine("Добро пожаловать!");
+            Console.WriteLine("Введите номер заказа");
+
+            var itemNumber = Console.ReadLine();
+            var request = (Status)Enum.Parse(typeof(Status), itemNumber);
+
+            Console.WriteLine(GetAnswer(request));
+
+
+
+
+            Console.ReadKey();
+
+        }
+
+
+
+    }
+}
