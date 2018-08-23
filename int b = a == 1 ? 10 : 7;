@@ -1,0 +1,22 @@
+int b = a == 1 ? 10 : 7;
+
+это можно представить так
+
+int a = 1;
+int b = 0;
+if(a == 1) {
+  Console.WriteLine('hello');
+}
+else {
+  b = a;
+}
+
+
+int a = 1;
+int b = 0;
+if(a == 1) {
+   b = 10;
+}
+else {
+  b = 7;
+}
