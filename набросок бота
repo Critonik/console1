@@ -1,0 +1,40 @@
+static string Trim(string str, char[] chars)
+        {
+            string strA = str;
+
+            for(int i = 0; i < chars.Length; i++)
+            {
+                strA = strA.Replace(char.ToString(chars[i]),"");
+            }
+            return strA;
+        }
+        
+
+        static string Ans(string q)
+        {
+            string tr = ")(:^^=!?";
+            var ans = "";
+            q = q.ToLower();
+            q = Trim(q, tr.ToCharArray());
+            string[] answerList = File.ReadAllLines("1.txt", System.Text.Encoding.Default);
+
+            for (int i = 0; i < answerList.Length; i+=2)
+            {
+                if(q == answerList[i].ToLower())
+                {
+                    ans = answerList[i+1];
+                    break;
+                }
+            }
+            return ans;
+        }
+
+        static void Main()
+        {
+            while(true)
+            {
+                Console.Write("Ваш вопрос: ");
+                string q = Console.ReadLine(); //Ввод вопроса
+                Console.WriteLine("Бот сказал: " + Ans(q) + "\n"); // вывод
+            }
+        }
